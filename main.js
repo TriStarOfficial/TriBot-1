@@ -33,7 +33,14 @@ client.on('message', message =>{
     } else if(command == 'arsrelease'){
         client.commands.get('arsenal').execute(message, args);
     }   else if(command == 'shutdown'){
-        client.commands.get('shutdown').execute(message, args);
+        if(message.member.roles.cache.has('823777643551129611')){
+            const logchannel = message.guild.channels.cache.find(channel => channel.id === '832546560096206898');
+            logchannel.send(`<@${'710904756138147882'}> Shutting Down...`);
+            client.destroy()
+            
+    }   else {
+        message.channel.send('You do not have permission to run this command');
+    }
     }
 });
  
