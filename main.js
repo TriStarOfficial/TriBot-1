@@ -16,7 +16,9 @@ for(const file of commandFiles){
  
  
 client.once('ready', () => {
-    console.log('ZayBot is online!');
+    console.log('ZayBot is online!')
+    client.user.setActivity('ZayHub', { type: 'WATCHING' })
+    client.user.setStatus('online');
 });
  
 client.on('message', message =>{
