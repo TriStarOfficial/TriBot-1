@@ -32,6 +32,8 @@ client.on('message', message =>{
         client.commands.get('ping').execute(message, args);
     } else if(command == 'arsrelease'){
         client.commands.get('arsenal').execute(message, args);
+    }   else if(command == 'shutdown'){
+        client.commands.get('shutdown').execute(message, args);
     }
 });
  
