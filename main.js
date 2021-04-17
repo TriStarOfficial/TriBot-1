@@ -17,10 +17,10 @@ for(const file of commandFiles){
  
 client.once('ready', () => {
     console.log('ZayBot is online!')
-    client.user.setActivity('ZayHub', { type: 'WATCHING' })
     client.user.setStatus('online');
 });
  
+//COmmands Variable
 client.on('message', message =>{
     message.member.roles.cache.has
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -28,6 +28,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
  
+    //Commands
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     } else if(command == 'arsrelease'){
