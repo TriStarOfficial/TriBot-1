@@ -39,7 +39,7 @@ module.exports = {
 const relchannel = message.guild.channels.cache.find(channel => channel.id === '830668840949121034')
              const logchannel = message.guild.channels.cache.find(channel => channel.id === '832546560096206898')
               relchannel.send("@everyone", { embed });
-              logchannel.send(`<@&{823783446715432960}> Arsenal GUI Released!!`);
+              logchannel.send(`<@&${823783446715432960}> Arsenal GUI Released!!`);
     }   else {
         message.channel.send('You do not have permission to run this command');
     }
