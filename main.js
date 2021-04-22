@@ -31,16 +31,9 @@ client.on('message', message =>{
         client.commands.get('ping').execute(message, args);
     } else if(command == 'arsrelease'){
         client.commands.get('arsenal').execute(message, args);
-    }   else if(command == 'shutdown'){
-        if(message.member.roles.cache.has('823777643551129611')){
-            const logchannel = message.guild.channels.cache.find(channel => channel.id === '832546560096206898');
-            logchannel.send(`<@${'710904756138147882'}> Shutting Down...`);
-            client.destroy()
-            
-    }   else {
-        message.channel.send('You do not have permission to run this command');
-    }
-    }
+    }   else if(command == 'nl2release'){
+        client.commands.get('nl2').execute(message, args);
+    } 
 });
  
 client.login('ODMyNTE5MDU2ODUzOTU4NzE2.YHk9yg.WPw1P7RBg9TjEPS7pZE-bn5Z6XM');
