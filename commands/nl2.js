@@ -9,7 +9,6 @@ module.exports = {
                 "description": "```--==Farming==--\nAuto Swing\nAuto Sell\nAuto Buy Sword\nAuto Buy Crystals\nAuto Buy Ranks\nAuto Buy Skills\nAuto Buy Powers\nCollect Collectibles\nAuto Kill\nAuto Collect Chest\nUnlock Islands\n\n--==Teleports==\nTeleports\n\n--==Orbs==--\nAll Orbs Toggle\n\n--==Misc==--\nWalkspeed\nJumppower\nName hide\nToggle Popups\n\nAnd others I don't Remember```",
                 "url": "",
                 "color": 10325960,
-                "timestamp": "2021-04-22T13:01:21.025Z",
                 "footer": {
                   "icon_url": "https://cdn.discordapp.com/attachments/834507119775973397/834508205869891604/images.jpeg.png",
                   "text": "Cloud Development"
