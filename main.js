@@ -25,9 +25,9 @@ async function  getVer() {
 setInterval(async function() {
 
     let verValue = await getVer();
-    const relchannel = client.guilds.channels.cache.find(channel => channel.id === '836620017944231997')
     if (curVer.version != verValue) {
         curVer.version = verValue
+        const relchannel = client.guilds.cache.find(channel => channel.id === '836620017944231997')
         const embed = {
             "title": "Roblox Update",
             "description": "Roblox Has Updated! \nWait For Your Executor To Update! :slight_smile:```\n[+]" `${verValue}```,
