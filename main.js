@@ -16,7 +16,7 @@ for(const file of commandFiles){
 const curVer = fs.readFileSync("curVer.json");
 console.log(curVer)
 
-let getVer = async () => {
+async function  getVer() {
     let response = await axios.get("http://setup.roblox.com/version")
     let ver = response.data
     return ver;
