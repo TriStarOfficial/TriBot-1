@@ -54,7 +54,6 @@ client.on('ready', () => {
  
 //COmmands Variable
 client.on('message', message =>{
-    message.member.roles.cache.has
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
     const args = message.content.slice(prefix.length).split(/ +/);
