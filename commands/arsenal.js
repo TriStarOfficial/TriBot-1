@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'arsenal',
-    description: "this is a arsenal command!",
+    name: 'Mad City',
+    description: "this is a Mad City command!",
     execute(message, args){
 
         if(message.member.roles.cache.has('823783446715432960')){

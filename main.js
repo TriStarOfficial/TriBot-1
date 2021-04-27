@@ -14,7 +14,7 @@ for(const file of commandFiles){
  
  
 client.once('ready', () => {
-    console.log('ZayBot is online!')
+    console.log('TriBot is online!')
     client.user.setStatus('online');
 });
  
@@ -29,11 +29,11 @@ client.on('message', message =>{
     //Commands
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    } else if(command == 'arsrelease'){
+    } else if(command == 'madrelease'){
         client.commands.get('arsenal').execute(message, args);
     }   else if(command == 'nl2release'){
         client.commands.get('nl2').execute(message, args);
     } 
 });
  
-client.login('ODMyNTE5MDU2ODUzOTU4NzE2.YHk9yg.WPw1P7RBg9TjEPS7pZE-bn5Z6XM');
+client.login('ODM2NDk5NDcwNzk4NTUzMTQ5.YIe41w.sXFAx0e8KhSvrX52Cd-2lnd5WR0');
