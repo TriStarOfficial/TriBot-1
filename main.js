@@ -30,7 +30,7 @@ setInterval(async function() {
         const relchannel = client.guilds.cache.find(channel => channel.id === '836620017944231997')
         const embed = {
             "title": "Roblox Update",
-            "description": "Roblox Has Updated! \nWait For Your Executor To Update! :slight_smile: \n```[+]" `${verValue}`,
+            "description": "Roblox Has Updated! \nWait For Your Executor To Update! :slight_smile: \n"```[+] ${verValue}```,
             "url": "https://roblox.com/home",
             "color": 13181474,
             "footer": {
