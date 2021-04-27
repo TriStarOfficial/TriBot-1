@@ -25,7 +25,7 @@ let getVer = async () => {
 setInterval(async function() {
 
     let verValue = await getVer();
-    const relchannel = message.guild.channels.cache.find(channel => channel.id === '836620017944231997')
+    const relchannel = client.guild.channels.cache.find(channel => channel.id === '836620017944231997')
     if (curVer.version != verValue) {
         curVer.version = verValue
         const embed = {
