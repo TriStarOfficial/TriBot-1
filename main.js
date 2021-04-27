@@ -22,7 +22,7 @@ client.once('ready', () => {
 
 // Settings
 var settings = {
-    webhook_url: "https://discord.com/api/webhooks/832309047688298567/VIbM2osljXfUkdqzXDHiRW_q6yqblnGOf-x77DuzkhRJmAQ2VJ36MMUmTUSDPc87Migv", // The webhook URL
+    webhook_url: "https://discord.com/api/webhooks/836540819673972736/VJ7mvj7MyO0ZW9x0Oi-mFeTmx1jy85qvwkiCnMN3njiFw-jtHSae4KsMdh0VaVO6unDj", // The webhook URL
     message: {
         username: "RobloxUpdateNotifier", // The webhook username
         avatar: "", // The webhook profile picture
