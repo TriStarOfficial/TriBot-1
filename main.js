@@ -23,10 +23,18 @@ async function getVer() {
 }
 
 setInterval(async function() {
-
     let verValue = await getVer();
     if (curVer.version != verValue) {
-        curVer.version = verValue;
+        fs.readFile("./curVer.json", 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  var result = data.replace(version, `${verValue}`);
+
+  fs.writeFile("./curVer.json", result, 'utf8', function (err) {
+     if (err) return console.log(err);
+  });
+});
         const embed = {
             "title": "Roblox Update",
             "description": `Roblox Has Updated!\nWait For Your Executor To Update! :slight_smile:\n\`\`\`[+] ${verValue}\`\`\``,
