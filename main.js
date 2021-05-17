@@ -27,7 +27,6 @@ setInterval(async function() {
     let verValue = await getVer();
     if (curVer.version != verValue) {
         curVer.version = verValue;
-        const relchannel = client.guilds.cache.find(channel => channel.id === '837392652722110505');
         const embed = {
             "title": "Roblox Update",
             "description": `Roblox Has Updated!\nWait For Your Executor To Update! :slight_smile:\n\`\`\`[+] ${verValue}\`\`\``,
@@ -41,7 +40,7 @@ setInterval(async function() {
                 "name": "Roblox Update Notifier"
             }
         };
-        relchannel.send("@everyone", { embed });
+        client.guilds.get('835445611322802186').channels.get('837392652722110505').send("@everyone", { embed });
     }
 }, 300000);
 
