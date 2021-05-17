@@ -21,7 +21,7 @@ async function getVer() {
     let ver = response.data;
     return ver;
 }
-const mainJs = require('./curVer.json');
+const mainJs = require('curVer.json');
 var version1 = mainJs.version
 setInterval(async function() {
     let verValue = await getVer();
