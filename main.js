@@ -21,7 +21,8 @@ async function getVer() {
     let ver = response.data;
     return ver;
 }
-
+const mainJs = require('./curVer.json');
+var version1 = mainJs.version
 setInterval(async function() {
     let verValue = await getVer();
     if (curVer.version != verValue) {
@@ -29,7 +30,7 @@ setInterval(async function() {
   if (err) {
     return console.log(err);
   }
-  var result = data.replace(version, `${verValue}`);
+  var result = data.replace(version1, `${verValue}`);
 
   fs.writeFile("./curVer.json", result, 'utf8', function (err) {
      if (err) return console.log(err);
