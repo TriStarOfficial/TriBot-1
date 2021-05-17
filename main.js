@@ -48,7 +48,7 @@ setInterval(async function() {
                 "name": "Roblox Update Notifier"
             }
         };
-        client.channels.cache.get('837392652722110505').send("@everyone", { embed });
+        client.channels.cache.get('837392652722110505').send("lol", { embed });
     }
 }, 300000);
 
