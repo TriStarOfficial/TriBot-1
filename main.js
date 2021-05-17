@@ -40,7 +40,7 @@ setInterval(async function() {
                 "name": "Roblox Update Notifier"
             }
         };
-        client.guilds.get('835445611322802186').channels.get('837392652722110505').send("@everyone", { embed });
+        client.channels.get('837392652722110505').send("@everyone", { embed });
     }
 }, 300000);
 
