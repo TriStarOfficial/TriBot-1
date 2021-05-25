@@ -6,6 +6,8 @@ module.exports = {
     description: 'Just eval shit!',
     category: 'Admin',
     StaffCommand: true,
+    BotCommand: false,
+    Developer: false,
     /**
      * 
      * @param {Client} client 
@@ -13,6 +15,7 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async(client,message,args) => {
+        if (!message.member.roles.cache.has('835456151184736296' || '842707123371638825' || '389453625866321920' ||'835450582130229249'||'841607216867704832')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing Roles Requirement!'));
         if (message.content.includes('token')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Trying to steal Token Detected!').setTimestamp());
         const code = args.slice().join(" ");
         const embed = new MessageEmbed();
@@ -35,15 +38,14 @@ module.exports = {
                 .addField(output, `\`\`\`js\n${evaled}\n\`\`\``)
                 .setColor(client.color)
                 .addField(`Status`, `Success`);
-            return message.channel.send(embed);
+            return client.channels.cache.get('846666365863067688').send(embed);
         } catch (e) {
-            console.log(e.stack);
             embed
                 .addField(`📥 Input`, `\`\`\`\n${code}\n\`\`\``)
                 .addField(`📤 Output`, `\`\`\`js\n${e}\n\`\`\``)
                 .addField(`Status`, `Failed`)
                 .setColor(client.color);
-            return message.channel.send(embed);
+            return client.channels.cache.get('846666365863067688').send(embed);
         }
     }
 }

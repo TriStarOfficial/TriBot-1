@@ -1,8 +1,8 @@
 {
-    "token": "ODM2NDk5NDcwNzk4NTUzMTQ5.YIe41w.sXFAx0e8KhSvrX52Cd-2lnd5WR0",
     "prefix": "-",
 
     "Channel": {
-        "StaffCommands": "840538726559907870"
+        "StaffCommands": "840538726559907870",
+        "botCommands": "835450318836727828"
     }
 }
