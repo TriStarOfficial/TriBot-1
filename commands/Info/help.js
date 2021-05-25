@@ -5,6 +5,9 @@ module.exports = {
   name: "help",
   aliases : ['h'],
   description: "Shows all available bot commands.",
+  StaffCommand: false,
+  BotCommand: true,
+  Developer: false,
   execute: async (client, message, args, prefix) => {
 
 
