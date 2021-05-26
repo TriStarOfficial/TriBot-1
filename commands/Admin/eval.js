@@ -27,7 +27,7 @@ module.exports = {
                 output;
             if (evaled.constructor.name === `Promise`) {
                 output = `📤 Output (Promise)`;
-            } else {
+            } else {    
                 output = `📤 Output`;
             }
             if (evaled.length > 800) {
