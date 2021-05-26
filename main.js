@@ -2,8 +2,9 @@ const Discord = require('discord.js');
 const axios = require('axios');
 const client = new Discord.Client();
 const fs = require('fs');
-const { prefix, token, Channel: {StaffCommands, botCommands} } = require('./config.json')
-const keepAlive = require('./ser.js')
+const { prefix, Channel: {StaffCommands, botCommands} } = require('./config.json');
+const keepAlive = require('./ser.js');
+require('dotenv').config()
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
