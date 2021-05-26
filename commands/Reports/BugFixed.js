@@ -33,6 +33,7 @@ module.exports = {
             .addField(`Status (Fixed) By: ${message.author.tag}`, FixedQuery)
             
             BugReportedEmbed.edit(FixedEmbed);
+            BugReportedEmbed.reactions.removeAll();
         } catch (err) {
             message.channel.send(new MessageEmbed()
             .setColor('RED')

@@ -27,6 +27,6 @@ module.exports = {
         .setColor('ORANGE')
 
         message.channel.send(new MessageEmbed().setDescription('Your Bug report has been sent!').setColor('RANDOM')).then(m => m.delete({ timeout: 5000 }))
-        client.channels.cache.get('837091940520296478').send(embed)
+        client.channels.cache.get('837091940520296478').send(embed).then(m => m.react('⚠'))
     }
 }
