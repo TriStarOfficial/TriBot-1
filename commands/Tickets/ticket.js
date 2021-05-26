@@ -55,7 +55,6 @@ module.exports = {
             .setTitle('TriStar Tickets')
             .setDescription('Please Inform the support team about your Issues with the script!\nUse **-ticket-close** to close the Ticket!')
             .addField("Executor", Executor, true)
-            .addField('Issue', Issue, true)
             )
             ch.send('<@722647978577363026>').then(m => m.delete())
         })
