@@ -18,21 +18,13 @@ module.exports = {
         if (chan) return message.channel.send(new MessageEmbed().setColor('RED').setDescription(`You already have a ticket opned! <#${chan.id}>`)).then(m => m.delete({ timeout: 5000 }));
         const text = args.join(" ");
         const Executor = text.split(',')[0]
-        const Issue = text.split(',')[1]
 
         if (!Executor) return message.channel.send(
             new MessageEmbed()
             .setColor('RED')
             .setDescription('Missing Argument **Executor Name**')
-            .addField('Usage:', '-ticket [Executor name], [Issue]', true)
-            .addField('Example:', '-ticket Krnl, Island Script not Working.')
-        ).then(m => m.delete({ timeout: 5000 }))
-        if (!Issue) return message.channel.send(
-            new MessageEmbed()
-            .setColor('RED')
-            .setDescription('Missing Argument **Issue**')
-            .addField('Usage:', '-ticket [Executor name], [Issue]', true)
-            .addField('Example:', '-ticket Krnl, Island Script not Working.')
+            .addField('Usage:', '-ticket [Executor name]', true)
+            .addField('Example:', '-ticket Krnl.')
         ).then(m => m.delete({ timeout: 5000 }))
 
         message.guild.channels.create(`ticket-${message.author.username}`, {
