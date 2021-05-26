@@ -26,10 +26,10 @@ module.exports = {
                     if (data){
                         fs.writeFileSync(`../${ch.id}.txt`, data.Content.join("\n\n"))
                         TranscriptChannel.send(new MessageEmbed()
-                        .attachFiles(new MessageAttachment(fs.createReadStream(`../${ch.id}.txt`)))
                         .setColor('RANDOM')
                         .setTitle(`${message.guild.members.cache.get(ch.name).user.tag} Ticket!`)
-                        )
+                        );
+                        await TranscriptChannel.send(new MessageAttachment(fs.createReadStream(`../${ch.id}.txt`)));
                         await client.TicketTranscript.findOneAndDelete({ Channel: ch.id })
                     }
                 })
