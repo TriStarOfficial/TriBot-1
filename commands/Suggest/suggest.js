@@ -14,7 +14,7 @@ module.exports = {
      * @param {Message} message 
      * @param {String[]} args 
      */
-    execute: async(client,message,args) => {
+    execute: async(client,message,args, prefix) => {
         message.delete()
         const report = args.slice().join(" ");
         if (!report) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Please Secify a Suggestion!'));

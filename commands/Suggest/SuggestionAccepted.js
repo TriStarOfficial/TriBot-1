@@ -14,7 +14,7 @@ module.exports = {
      * @param {Message} message 
      * @param {String[]} args 
      */
-    execute: async(client,message,args) => {
+    execute: async(client,message,args, prefix) => {
         const MessageID = args[0];
         const FixedQuery = args.slice(1).join(" ");
         
