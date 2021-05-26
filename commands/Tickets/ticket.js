@@ -24,14 +24,14 @@ module.exports = {
             new MessageEmbed()
             .setColor('RED')
             .setDescription('Missing Argument **Executor Name**')
-            .addField('Usage:', '-ticket [Executor name], [Issue (not required)]', true)
+            .addField('Usage:', '-ticket [Executor name], [Issue]', true)
             .addField('Example:', '-ticket Krnl, Island Script not Working.')
         ).then(m => m.delete({ timeout: 5000 }))
         if (!Issue) return message.channel.send(
             new MessageEmbed()
             .setColor('RED')
             .setDescription('Missing Argument **Issue**')
-            .addField('Usage:', '-ticket [Executor name], [Issue (not required)]', true)
+            .addField('Usage:', '-ticket [Executor name], [Issue]', true)
             .addField('Example:', '-ticket Krnl, Island Script not Working.')
         ).then(m => m.delete({ timeout: 5000 }))
 
