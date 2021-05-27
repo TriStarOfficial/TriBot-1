@@ -6,7 +6,7 @@ const keepAlive = require('./ser.js');
 require('dotenv').config();
 const { connect, mongo, model, Schema } = require('mongoose');
 const GetVer3 = require('./GetVer3');
-
+require('discord-buttons')(client);
 //SCHEMA
 client.TicketTranscript = model('transcript', 
     new Schema({
