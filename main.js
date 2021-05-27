@@ -6,6 +6,7 @@ const { prefix, Channel: {StaffCommands, botCommands} } = require('./config.json
 const keepAlive = require('./ser.js');
 require('dotenv').config();
 const { connect, mongo, model, Schema } = require('mongoose');
+const GetVer3 = require('./GetVer3');
 
 //SCHEMA
 client.TicketTranscript = model('transcript', 
@@ -15,7 +16,13 @@ client.TicketTranscript = model('transcript',
         User: String
     })
 )
-
+client.RobloxVersion = model('roblox',
+    new Schema({
+        ID: Number,
+        CurrentVersion: String,
+        OldVersion: String
+    })
+)
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -26,6 +33,7 @@ client.categories = fs.readdirSync("./commands/");
 });
 client.on('ready', () => {
     console.log(`${client.user.username} is Ready! ✅`)
+
     connect(process.env['mongo'], {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -80,5 +88,6 @@ client.on('message', async message => {
     })
 })
 
+GetVer3(client);
 keepAlive();
 client.login(process.env['token']);
