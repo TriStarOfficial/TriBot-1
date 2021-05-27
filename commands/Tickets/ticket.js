@@ -13,25 +13,26 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async(client,message,args) => {
-        message.delete()
         const chan = message.guild.channels.cache.find(ch => ch.name === `ticket-${message.author.username}`)
         if (chan) return message.channel.send(new MessageEmbed().setColor('RED').setDescription(`You already have a ticket opned! <#${chan.id}>`)).then(m => m.delete({ timeout: 5000 }));
         const text = args.join(" ");
         const Executor = text.split(',')[0]
-
+        
         if (!Executor) return message.channel.send(
             new MessageEmbed()
             .setColor('RED')
             .setDescription('Missing Argument **Executor Name**')
             .addField('Usage:', '-ticket [Executor name]', true)
             .addField('Example:', '-ticket Krnl.')
-        ).then(m => m.delete({ timeout: 5000 }))
-
-        message.guild.channels.create(`ticket-${message.author.username}`, {
-            type: 'text',
-            parent: '837728403876610078',
-            permissionOverwrites: [
-                {
+            ).then(m => m.delete({ timeout: 5000 }))
+            
+            await message.delete()
+            message.guild.channels.create(`ticket-${message.author.username}`, {
+                type: 'text',
+                parent: '837728403876610078',
+                topic: message.author.id,
+                permissionOverwrites: [
+                    {
                     id: message.guild.id,
                     deny: ['VIEW_CHANNEL']
                 },
