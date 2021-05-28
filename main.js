@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const axios = require('axios');
-const client = new Discord.Client({ partials: ['REACTION', 'MESSAGE', 'USER'] });
+const client = new Discord.Client({ partials: ['REACTION', 'MESSAGE', 'USER']});
 const fs = require('fs');
 const keepAlive = require('./ser.js');
 require('dotenv').config();
