@@ -30,10 +30,19 @@ module.exports = {
             .setAuthor(Data.author.name, Data.author.iconURL)
             .setDescription(Data.description)
             .setColor('RED')
-            .addField(`Status (Declined) By: ${message.author.tag}`, FixedQuery)
+            .addField(`Status (Declined) By: ${message.author.tag} | Reason:`, `${FixedQuery}`)
             
             BugReportedEmbed.edit(FixedEmbed);
             BugReportedEmbed.reactions.removeAll();
+            const user = await client.users.cache.find((u) => u.tag === Data.author.name);
+            const embed = new MessageEmbed()
+            .setColor('RED')
+            .setTitle('Suggestion Declined')
+            .setDescription('We are sorry to inform you but your suggestion was Declined!' + ` [Message](https://discord.com/channels/835445611322802186/837033902824226917/${MessageID})`)
+            .addField('Declined by', message.author.tag, true)
+            .addField('Message Content', Data.description)
+            user.send(embed).catch(err => { if (err) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('User DM is Closed!')).then(m => m.delete({ timeout: 1000 *10 })) })
+
         } catch (err) {
             message.channel.send(new MessageEmbed()
             .setColor('RED')

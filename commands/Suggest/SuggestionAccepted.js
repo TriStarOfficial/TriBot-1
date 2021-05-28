@@ -34,6 +34,14 @@ module.exports = {
             
             BugReportedEmbed.edit(FixedEmbed);
             BugReportedEmbed.reactions.removeAll();
+            const user = await client.users.cache.find((u) => u.tag === Data.author.name);
+            const embed = new MessageEmbed()
+            .setColor('GREEN')
+            .setTitle('Suggestion Accpetion')
+            .setDescription('We are happy to inform you that your suggestion was Accepted!' + ` [Message](https://discord.com/channels/835445611322802186/837033902824226917/${MessageID})`)
+            .addField('Accepted by', message.author.tag, true)
+            .addField('Message Content', Data.description)
+            user.send(embed).catch(err => { if (err) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('User DM is Closed!')).then(m => m.delete({ timeout: 1000 *10 })) })
         } catch (err) {
             message.channel.send(new MessageEmbed()
             .setColor('RED')

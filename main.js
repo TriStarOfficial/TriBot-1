@@ -2,10 +2,10 @@ const Discord = require('discord.js');
 const axios = require('axios');
 const client = new Discord.Client({ partials: ['REACTION', 'MESSAGE', 'USER']});
 const fs = require('fs');
-const keepAlive = require('./ser.js');
+const keepAlive = require('./Function/Server/ser.js');
 require('dotenv').config();
 const { connect, mongo, model, Schema } = require('mongoose');
-const GetVer3 = require('./GetVer3');
+const GetVer3 = require('./Function/Roblox/GetVer3');
 require('discord-buttons')(client);
 //SCHEMA
 client.TicketTranscript = model('transcript', 

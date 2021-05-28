@@ -1,0 +1,3 @@
+{
+    "TriStar": "```lua\nloadstring(game:HttpGet('https://raw.githubusercontent.com/TriStarOfficial/TriStarScripts/main/TriStar.lua'))()\n```"
+}
