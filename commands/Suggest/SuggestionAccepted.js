@@ -2,7 +2,7 @@ const { MessageEmbed, Client,Message } = require('discord.js')
 const { Channel: { botCommands } } = require('../../config.json')
 
 module.exports = {
-    name: 'suggestion-accepted',
+    name: 'suggestion-accept',
     description: 'Null!',
     category: 'Suggest',
     StaffCommand: true,

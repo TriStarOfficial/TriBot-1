@@ -2,7 +2,7 @@ const { MessageEmbed, Client,Message } = require('discord.js')
 const { Channel: { botCommands } } = require('../../config.json')
 
 module.exports = {
-    name: 'bug-declined',
+    name: 'bug-decline',
     description: 'Null!',
     category: 'Info',
     StaffCommand: true,
