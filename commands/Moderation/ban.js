@@ -20,7 +20,7 @@ module.exports = {
         if (!target) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Please Mention a user or a user id!').addField('Usage: ' , '```ini\n' + ' [x] -ban [mention | userid | Username - Required] (reason - Not Required)' +'\n```'));
         if (!target.bannable) return message.channel.send(new MessageEmbed().setTitle('User Not Banable!').setColor('RED').setDescription(`${target} is not banable. May due to user role is higher than ${client.user}.`))
         if (target.id === message.author.id) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('You can\'t ban yourself! Dumb ass!'))
-        const reason = args[1] || "Unspecified";
+        const reason = args.slice(1).join(" ") || "Unspecified";
         var d = new Date,
             dformat = [d.getMonth() + 1,
             d.getDate(),
@@ -43,7 +43,7 @@ module.exports = {
         .addField('Banned By: ', message.author)
         .addField('Appeal: ', 'nil')
 
-        target.send(AuthorBannedEmbed).catch(e => message.channel.send(new MessageEmbed().setColor('RED').setTitle('Coudn\'t DM Target!').setDescription('Coudn\'t DM Target! the message. highly Due to Target DM is Closed!')));
+        target.send(AuthorBannedEmbed).catch(e => message.channel.send(new MessageEmbed().setColor('RED').setTitle('Coudn\'t DM Target!').setDescription('Coudn\'t DM Target! the message. highly Due to Target DM is Closed!').addField('Error', e)));
         target.ban({ reason: reason });
         message.channel.send(BanEmbed);
     }

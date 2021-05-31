@@ -16,10 +16,9 @@ module.exports = {
      */
     execute: async(client,message,args) => {
         const MessageID = args[0];
-        const FixedQuery = args.slice(1).join(" ");
+        const FixedQuery = args.slice(1).join(" ") || "No Message were Given!";
         
         if (!MessageID) return message.channel.send(new MessageEmbed().setDescription('Missing Message ID!').setColor('RED'));
-        if (!FixedQuery) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing Fixed Message!'))
 
         try {
         
