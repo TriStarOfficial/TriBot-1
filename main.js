@@ -7,6 +7,7 @@ require('dotenv').config();
 const { connect, mongo, model, Schema } = require('mongoose');
 const GetVer3 = require('./Function/Roblox/GetVer3');
 require('discord-buttons')(client);
+client.snipes = new Map();
 //SCHEMA
 client.TicketTranscript = model('transcript', 
     new Schema({
@@ -42,6 +43,15 @@ client.on('message', async message => {
         await data.save().catch(err => console.log(err))
     })
 })
+client.on('messageDelete', async(msg) => {
+    console.log(msg.content);
+    client.snipes.set(msg.channel.id, {
+        content: msg.content,
+        author: msg.author,
+        date: msg.createdAt
+    })
+})
+
 GetVer3(client);
 keepAlive();
 client.login(process.env['token']);
