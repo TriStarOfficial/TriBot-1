@@ -57,7 +57,7 @@ module.exports = {
             .setDescription('Please Inform the support team about your Issues with the script!\nUse **-ticket-close** to close the Ticket!')
             .addField("Executor", Executor, true)
             )
-            ch.send('<@722647978577363026>').then(m => m.delete())
+            ch.send('<@&842127079574732820> <@&835456151184736296>').then(m => m.delete())
         })
     }
 }
