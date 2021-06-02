@@ -44,7 +44,6 @@ client.on('message', async message => {
     })
 })
 client.on('messageDelete', async(msg) => {
-    console.log(msg.content);
     client.snipes.set(msg.channel.id, {
         content: msg.content,
         author: msg.author,
