@@ -16,7 +16,7 @@ module.exports = {
      */
     execute: async(client,message,args) => {
         if (!message.member.roles.cache.has('835456151184736296' || '842707123371638825' || '389453625866321920' ||'835450582130229249'||'841607216867704832')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing Roles Requirement!'));
-        if (message.content.includes('token')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Trying to steal Token Detected!').setTimestamp());
+        if (message.content.includes('token' || 'mongo')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Trying to steal Token or Mongo Database Key Detected!').setTimestamp());
         const code = args.slice().join(" ");
         const embed = new MessageEmbed();
         
