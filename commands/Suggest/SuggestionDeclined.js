@@ -29,7 +29,7 @@ module.exports = {
             .setAuthor(Data.author.name, Data.author.iconURL)
             .setDescription(Data.description)
             .setColor('RED')
-            .addField(Data.fields[0])
+            .addFields(Data.fields[0])
             .addField(`Status (Declined) By: ${message.author.tag} | Reason:`, `${FixedQuery}`)
             
             BugReportedEmbed.edit(FixedEmbed);
