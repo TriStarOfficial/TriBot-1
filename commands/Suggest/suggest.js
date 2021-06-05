@@ -13,8 +13,8 @@ module.exports = {
     name: 'suggest',
     description: 'Suggest a Game/Feature',
     category: 'Suggest',
-    usage: '-suggest [Info], [GameId]',
-    example: '-suggest Gun Mods, 286090429',
+    usage: '-suggest [Info] | [GameId]',
+    example: '-suggest Gun Mods | 286090429',
     StaffCommand: false,
     BotCommand: true,
     Developer: false,
@@ -26,9 +26,9 @@ module.exports = {
      * @param {String[]} args
      */
     execute: async (client, message, args, text, prefix, command) => {
-        const SuggestionInfo = text.split(',')[0]
+        const SuggestionInfo = text.split('|')[0]
         if (!SuggestionInfo) return client.embed.error('Missing Argument', 'Missing Suggestion Info', message, [{name: 'Usage', value: command.usage}, { name: 'Example', value: command.example }])
-        const SuggestionID = text.split(',')[1].replace(" ", '')
+        const SuggestionID = text.split('|')[1].replace(" ", '')
         if (!SuggestionID) return client.embed.error('Missing Argument', 'Missing Game ID!', message, [{name: 'Usage', value: command.usage}, { name: 'Example', value: command.example }])
         if (isNaN(SuggestionID)) return client.embed.error('Wrong Usage | Game ID', "Game id must be a number!", message)
         const game = `https://roblox.com/games/${SuggestionID}`

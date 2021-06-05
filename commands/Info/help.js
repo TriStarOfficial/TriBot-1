@@ -8,7 +8,7 @@ module.exports = {
   StaffCommand: false,
   BotCommand: true,
   Developer: false,
-  execute: async (client, message, args, prefix) => {
+  execute: async (client, message, args, text, prefix) => {
 
 
     const roleColor =
@@ -87,14 +87,18 @@ module.exports = {
         .addField(
           "USAGE:",
           command.usage
-            ? `\`${prefix}${command.name} ${command.usage}\``
-            : `\`${prefix}${command.name}\``
         )
         .addField(
           "DESCRIPTION:",
           command.description
             ? command.description
             : "No description for this command."
+        )
+        .addField(
+          "EXAMPLE:",
+          command.example
+            ? command.example
+            : "No Example for this command"
         )
         .setFooter(
           `Requested by ${message.author.tag}`,
