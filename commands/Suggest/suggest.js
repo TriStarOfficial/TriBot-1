@@ -1,35 +1,49 @@
-const { MessageEmbed, Client,Message } = require('discord.js')
-const { Channel: { botCommands } } = require('../../config.json')
+const {
+    Message,
+    Client,
+    MessageEmbed,
+    MessageCollector,
+} = require('discord.js');
+const {
+    MessageButton
+} = require('discord-buttons');
+
 
 module.exports = {
     name: 'suggest',
-    description: 'Suggests a feature or a game!',
+    description: 'Suggest a Game/Feature',
     category: 'Suggest',
+    usage: '-suggest [Info], [GameId]',
+    example: '-suggest Gun Mods, 286090429',
     StaffCommand: false,
     BotCommand: true,
     Developer: false,
+    ModOnly: false,
     /**
      * 
      * @param {Client} client 
      * @param {Message} message 
-     * @param {String[]} args 
+     * @param {String[]} args
      */
-    execute: async(client,message,args, prefix) => {
-        message.delete()
-        const report = args.slice().join(" ");
-        if (!report) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Please Secify a Suggestion!'));
+    execute: async (client, message, args, text, prefix, command) => {
+        const SuggestionInfo = text.split(',')[0]
+        if (!SuggestionInfo) return client.embed.error('Missing Argument', 'Missing Suggestion Info', message, [{name: 'Usage', value: command.usage}, { name: 'Example', value: command.example }])
+        const SuggestionID = text.split(',')[1].replace(" ", '')
+        if (!SuggestionID) return client.embed.error('Missing Argument', 'Missing Game ID!', message, [{name: 'Usage', value: command.usage}, { name: 'Example', value: command.example }])
+        if (isNaN(SuggestionID)) return client.embed.error('Wrong Usage | Game ID', "Game id must be a number!", message)
+        const game = `https://roblox.com/games/${SuggestionID}`
 
         const embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL({ dynamic: true }))
-        .setDescription(report)
-        .setTitle('Suggestion By '+ message.author.tag)
-        .addField('Status (Decision Pending)', 'Status Currently Not Decided!')
+        .setTitle('Suggest By ' + message.author.tag)
+        .setDescription(SuggestionInfo)
+        .addField('Game', game)
+        .addField('Status: (Decision Pending)', "Currently not Decided!")
         .setColor('ORANGE')
-
-        message.channel.send(new MessageEmbed().setDescription('Your Suggestion has been sent!').setColor('RANDOM')).then(m => m.delete({ timeout: 5000 }))
-        client.channels.cache.get('837033902824226917').send(embed).then(msg => {
-            msg.react('⬆')
-            msg.react('⬇')
+        client.channels.cache.get('837033902824226917').send(embed).then(m => {
+            m.react('⬆')
+            m.react('⬇')
         })
+
     }
 }

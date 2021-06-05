@@ -16,7 +16,7 @@ module.exports = {
      */
     execute: async(client,message,args, prefix) => {
         const MessageID = args[0];
-        const FixedQuery = args.slice(1).join(" ") || "No Suggestion Message Given!";
+        const FixedQuery = args.slice(1).join(" ") || "No Message Given!";
         
         if (!MessageID) return message.channel.send(new MessageEmbed().setDescription('Missing Message ID!').setColor('RED'));
         
@@ -29,8 +29,9 @@ module.exports = {
             .setAuthor(Data.author.name, Data.author.iconURL)
             .setDescription(Data.description)
             .setColor('GREEN')
-            .addField(`Status (Accepted) By: ${message.author.tag}`, FixedQuery)
-            
+            .addFields(Data.fields[0])
+            .addField(`Status (Accpeted) By ${message.author.tag}`, FixedQuery)
+
             BugReportedEmbed.edit(FixedEmbed);
             BugReportedEmbed.reactions.removeAll();
             const user = await client.users.cache.find((u) => u.tag === Data.author.name);
@@ -44,7 +45,7 @@ module.exports = {
         } catch (err) {
             message.channel.send(new MessageEmbed()
             .setColor('RED')
-            .setDescription('That suggestion doesn\'t exists!')
+            .setDescription('That suggestion doesn\'t exist!')
             .setTimestamp()
             )
             client.channels.cache.get('846666365863067688').send(new MessageEmbed()

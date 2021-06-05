@@ -1,9 +1,9 @@
 const { Client } = require('discord.js');
-const { connect, mongo, model, Schema } = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const activitylist = [
-    "Cloud Development Dying",
+    "Cloud Development Die",
     "TriStar Hub"
 ]
 
@@ -13,14 +13,13 @@ const activitylist = [
  */
 
 module.exports.run = (client) => {
-    console.log(`${client.user.username} is Ready! ✅`);
+    console.log(`${client.user.username} is Ready! | ✅`);
 
-    connect(process.env['mongo'], {
+    mongoose.connect(process.env['mongo'], {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: true,
-    }).then(console.log('Connect to Mongo Database! ✅'));
-
+    }).then(console.log(`Connect to Mongo Database! | ✅`)).catch(err => console.log(`Connecting to Database Error! | ❎\n${err}`));
     
     setInterval(() => {
         const status = activitylist[Math.floor(Math.random() * activitylist.length)]

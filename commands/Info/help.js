@@ -13,7 +13,7 @@ module.exports = {
 
     const roleColor =
       message.guild.me.displayHexColor === "#000000"
-        ? "#ffffff"
+        ? "RANDOM"
         : message.guild.me.displayHexColor;
 
     if (!args[0]) {
@@ -37,7 +37,7 @@ module.exports = {
         let data = new Object();
 
         data = {
-          name: dir.toUpperCase(),
+          name: dir,
           value: cmds.length === 0 ? "In progress." : cmds.join(" "),
         };
 

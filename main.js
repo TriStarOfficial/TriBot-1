@@ -7,6 +7,7 @@ require('dotenv').config();
 const { connect, mongo, model, Schema } = require('mongoose');
 const GetVer3 = require('./Function/Roblox/GetVer3');
 require('discord-buttons')(client);
+client.embed = require('./Function/Embeds/EmbedHandler')
 client.snipes = new Map();
 //SCHEMA
 client.TicketTranscript = model('transcript', 
@@ -53,4 +54,5 @@ client.on('messageDelete', async(msg) => {
 
 GetVer3(client);
 keepAlive();
-client.login(process.env['token']);
+
+client.login(process.env['token'])

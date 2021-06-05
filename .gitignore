@@ -2,3 +2,6 @@ node_modules
 .env
 CommandSetup.js
 commands/Admin/CreateBut.js
+png
+commands/test
+token.json
