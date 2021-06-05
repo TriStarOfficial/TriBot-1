@@ -28,9 +28,9 @@ module.exports = {
             const FixedEmbed = new MessageEmbed()
             .setAuthor(Data.author.name, Data.author.iconURL)
             .setDescription(Data.description)
-            .setColor('RED')
+            .setColor('GREEN')
             .addFields(Data.fields[0])
-            .addField(`Status (Declined) By: ${message.author.tag} | Reason:`, `${FixedQuery}`)
+            .addField(`Status (Accpeted) By ${message.author.tag}`, FixedQuery)
             
             BugReportedEmbed.edit(FixedEmbed);
             BugReportedEmbed.reactions.removeAll();
