@@ -19,7 +19,7 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async (client, message, args, text, prefix, command) => {
-        var Int = RandomInt(10)
+        var Int = RandomInt(50)
         const res = await fetch('https://www.reddit.com/r/nsfw/new.json?sort=hot').then(res => res.json());
         const Reddit = res['data']['children'][Int]['data']
 
