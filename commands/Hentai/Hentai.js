@@ -52,11 +52,6 @@ module.exports = {
                     .setTitle(GameData.name)
                     .setColor('BLURPLE')
                     .setDescription(GameData.gameDescription)
-                    .addFields([{
-                        name: 'Creator Data',
-                        value: `Creator Name: ${GameData.creatorName}\nCreator ID: ${GameData.creatorId}`,
-                        inline: true
-                    }])
                     .setURL(`https://roblox.com/games/${GameData.placeId}`)
                     .setFooter('Auto Generated Via Roblox API!')
                 message.channel.send('<@722647978577363026> send more game white nigga', { embed: GameEmbed })
