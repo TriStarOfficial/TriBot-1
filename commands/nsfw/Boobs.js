@@ -22,7 +22,7 @@ module.exports = {
     execute: async (client, message, args, text, prefix, command) => {
         const res = await axios.get('https://nekobot.xyz/api/image?type=boobs')
         const embed = new MessageEmbed()
-        .setColor('RANDOM')
+        .setColor('BLURPLE')
         .setImage(res.data.message)
         .setTimestamp()
         .setTitle('Boobs')
