@@ -11,6 +11,9 @@ server.all('/', (req, res)=>{
 server.all('/discord', (req, res) => {
     res.redirect('https://discord.gg/MkBuu8Xpk3')
 })
+server.all('/status', (req, res) => {
+    res.redirect('https://stats.uptimerobot.com/x86NRiJ8Dn')
+})
 function keepAlive(){
     const listener = server.listen(3000, () => {
         console.log(`Listening to port 127.0.0.1:${listener.address().port}`);
