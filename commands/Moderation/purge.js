@@ -16,6 +16,7 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async (client, message, args, prefix) => {
+        message.delete();
         const BulkValue = args.slice(0).join(" ");
         if (!BulkValue) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing Number Arguments!').addField('Usage: ', `\`\`\`ini\n  [x] -purge [Value] \n\`\`\``));
 
