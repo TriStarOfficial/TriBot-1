@@ -31,7 +31,7 @@ module.exports.run  = async(client,message) => {
 
         if (command.ModOnly && !message.member.roles.cache.has('835456151184736296' || '842127079574732820')) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('Missing Required Roles!'))
 
-        if (command.nsfw && message.channel.id !== '850732638758764574') return;
+        if (command.nsfw && message.channel.id !== '851315505180442684') return;
 
         if (command) command.execute(client, message, args, text, prefix, command)
     } catch (err) {
