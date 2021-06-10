@@ -43,7 +43,7 @@ module.exports = {
                 const rbxres = await axios.get('https://games.roblox.com/v1/games/list?model.maxRows=50', {
                     method: 'GET',
                     headers: {
-                        'Accpet': 'application/json'
+                        'Accept': 'application/json'
                     }
                 }).then(res => res.data);
                 const GameData = rbxres['games'][Int]

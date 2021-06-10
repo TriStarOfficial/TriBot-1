@@ -44,7 +44,11 @@ module.exports = {
                     }
                 ])
             }
+
+            message.guild.channels.cache.get('851450167055089704').updateOverwrite()
         })
+
+        
         
     }
 }    
