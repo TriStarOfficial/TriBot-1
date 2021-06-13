@@ -36,7 +36,7 @@ module.exports = {
         .addField('Unbanned At: ', dformat)
         .addField('Reason: ', Reason)
         )
-        client.users.cache.get(ToUnban.toString()).send(new MessageEmbed()
+        client.users.cache.get(ToUnban).send(new MessageEmbed()
         .setTitle('Unbanned Fram TriStar Hub')
         .setDescription('You\'re Unbanned from TriStar Hub Discord Server!')
         .setColor('BLURPLE')

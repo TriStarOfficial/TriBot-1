@@ -44,8 +44,25 @@ client.on('message', async message => {
         await data.save().catch(err => console.log(err))
     })
 })
-client.on('guildMemberAdd', member => {
-    if (member.id === "840827239373078538") member.roles.add("848100691239108608")
+client.on('message', async message => {
+    if (message.content.includes('streancommunuty.ru')) {
+        message.delete()
+        if (message.member.bannable) message.member.ban({ reason: 'Fake Steam Trade URL!', days: 7})
+        function BanLogs(id) {
+            const Embed = new Discord.MessageEmbed()
+            .setColor('BLURPLE')
+            .setTitle('Auto Ban!')
+            .setDescription('Fake Steam Trade URL was Detected by TriBot!')
+            .addField('User Info', `
+            > Name & ID: ${message.author} | ${message.author.tag} | ${message.author.id}
+            > Joined At: ${message.member.joinedAt}
+            > Created At: ${message.author.createdAt}
+            `)
+            client.channels.cache.get(id).send(Embed)
+        }
+
+        BanLogs("846666365863067688")
+    }
 })
 client.on('messageDelete', async(msg) => {
     client.snipes.set(msg.channel.id, {
