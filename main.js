@@ -47,21 +47,33 @@ client.on('message', async message => {
 client.on('message', async message => {
     if (message.content.includes('streancommunuty.ru')) {
         message.delete()
-        if (message.member.bannable) message.member.ban({ reason: 'Fake Steam Trade URL!', days: 7})
-        function BanLogs(id) {
+        function DMMessage(id) {
             const Embed = new Discord.MessageEmbed()
             .setColor('BLURPLE')
-            .setTitle('Auto Ban!')
-            .setDescription('Fake Steam Trade URL was Detected by TriBot!')
-            .addField('User Info', `
-            > Name & ID: ${message.author} | ${message.author.tag} | ${message.author.id}
-            > Joined At: ${message.member.joinedAt}
-            > Created At: ${message.author.createdAt}
-            `)
-            client.channels.cache.get(id).send(Embed)
-        }
+            .setDescription(`You're not allowed to say that word! <:peperules:853618792583266304>`)
 
-        BanLogs("846666365863067688")
+            client.users.cache.get(id).send(Embed).catch(err => {
+                if (err) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('Unable to DM User!')).then(m => m.delete({ timeout: 1000*5 }))
+            })
+        }
+        DMMessage(message.author.id)
+
+        
+        
+        // function BanLogs(id) {
+        //     const Embed = new Discord.MessageEmbed()
+        //     .setColor('BLURPLE')
+        //     .setTitle('Auto Ban!')
+        //     .setDescription('Fake Steam Trade URL was Detected by TriBot!')
+        //     .addField('User Info', `
+        //     > Name & ID: ${message.author} | ${message.author.tag} | ${message.author.id}
+        //     > Joined At: ${message.member.joinedAt}
+        //     > Created At: ${message.author.createdAt}
+        //     `)
+        //     client.channels.cache.get(id).send(Embed)
+        // }
+
+        // BanLogs("846666365863067688")
     }
 })
 client.on('messageDelete', async(msg) => {
