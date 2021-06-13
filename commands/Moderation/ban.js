@@ -26,7 +26,7 @@ module.exports = {
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
         if (!target) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Please Mention a user or a user id!').addField('Usage: ', '```ini\n' + ' [x] -ban [mention | userid | Username - Required] (reason - Not Required)' + '\n```'));
         if (!target.bannable) return message.channel.send(new MessageEmbed().setTitle('User Not Banable!').setColor('RED').setDescription(`${target} is not banable. May due to user role is higher than ${client.user}.`))
-        if (target.id === message.author.id) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('You can\'t ban yourself! Dumb ass!'))
+        if (target.id === message.author.id) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Nigger you can\'t ban yourself. <:bruhlmao:843232413413015553>'))
         const reason = args.slice(1).join(" ") || "Unspecified";
         var d = new Date,
             dformat = [d.getMonth() + 1,
@@ -57,6 +57,25 @@ module.exports = {
             .addField('Appeal: ', 'nil')
         //============================================\\
 
+        function BanLogs(id) {
+            const Embed = new MessageEmbed()
+            .setColor('BLURPLE')
+            .setTitle('User Banned!')
+            .addField('Banned By:', `
+            > Name: ${message.author.tag} | ${message.author}
+            > ID: ${message.author.id}
+            > Highest Role: ${message.member.roles.highest}
+            `)
+            .addField('User Banned:', `
+            > Name: ${target.user.tag} | ${target}
+            > ID: ${target.user.id}
+            > Highest Role: ${target.roles.highest}
+            > Banned At: ${dformat}
+            > Reason:\n${reason}
+            `)
+
+            client.channels.cache.get(id).send(Embed)
+        }
         
         //=================== Button ==================\\
         const OneDayButton = new MessageButton()
@@ -95,7 +114,8 @@ module.exports = {
                     await BanConfirmMessage.edit({
                         component: null,
                         embed: BanEmbed
-                    })
+                    }).then(m => m.delete({ timeout: 1000*5 }))
+                    BanLogs("846666365863067688")
                     break;
                 case "SevenDayMessage":
                     target.send(AuthorBannedEmbed).catch(e => message.channel.send(new MessageEmbed().setColor('RED').setTitle('Coudn\'t DM Target!').setDescription('Coudn\'t DM Target! the message. highly Due to Target DM is Closed!').addField('Error', e)));
@@ -106,7 +126,8 @@ module.exports = {
                     await BanConfirmMessage.edit({
                         component: null,
                         embed: BanEmbed
-                    })
+                    }).then(m => m.delete({ timeout: 1000*5 }))
+                    BanLogs("846666365863067688")
                     break;
                 case "CustomDay":
                     BanConfirmMessage.edit({
@@ -134,7 +155,8 @@ module.exports = {
                             await BanConfirmMessage.edit({
                                 component: null,
                                 embed: BanEmbed
-                            })
+                            }).then(m => m.delete({ timeout: 1000*5 }))
+                            BanLogs("846666365863067688")
                         })
                     })
                     break;
@@ -146,7 +168,8 @@ module.exports = {
                     await BanConfirmMessage.edit({
                         component: null,
                         embed: BanEmbed
-                    }) 
+                    }).then(m => m.delete({ timeout: 1000*5 }))
+                    BanLogs("846666365863067688")
                 break
 
             }

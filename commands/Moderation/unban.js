@@ -36,5 +36,15 @@ module.exports = {
         .addField('Unbanned At: ', dformat)
         .addField('Reason: ', Reason)
         )
+        client.users.cache.get(ToUnban.toString()).send(new MessageEmbed()
+        .setTitle('Unbanned Fram TriStar Hub')
+        .setDescription('You\'re Unbanned from TriStar Hub Discord Server!')
+        .setColor('BLURPLE')
+        ).catch(err => {
+            if (err) return message.channel.send(new MessageEmbed()
+            .setColor('RED')
+            .setDescription('Unable to DM User Unbanned Message!')
+            )
+        })
     }
 }
