@@ -124,7 +124,7 @@ module.exports = {
                     });
 
                     Collector.on('end', async collected => {
-                        collected.forEach((value) => {
+                        collected.forEach(async(value) => {
                             if (typeof value.content !== "number") value.content = 7
                             target.send(AuthorBannedEmbed).catch(e => message.channel.send(new MessageEmbed().setColor('RED').setTitle('Coudn\'t DM Target!').setDescription('Coudn\'t DM Target! the message. highly Due to Target DM is Closed!').addField('Error', e)));
                             target.ban({
