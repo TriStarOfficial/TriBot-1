@@ -1,7 +1,8 @@
 const { Message, Client, MessageEmbed } = require('discord.js');
 const { MessageButton } = require('discord-buttons');
-const { default: fetch } = require('node-fetch');
 const RandomInt = require('../../Modules/RandomInt');
+const { hot } = require('../../json/nsfw.json');
+const { default: axios } = require('axios');
 
 module.exports = {
     name: 'hot',
@@ -20,8 +21,10 @@ module.exports = {
      */
     execute: async (client, message, args, text, prefix, command) => {
         var Int = RandomInt(50)
-        const res = await fetch('https://www.reddit.com/r/nsfw/new.json?sort=hot').then(res => res.json());
+        const randomurl = hot[Math.floor(Math.random() * hot.length)].toString()
+        const res = await axios.get(randomurl).then(res => res.data)
         const Reddit = res['data']['children'][Int]['data']
+
 
         const embed = new MessageEmbed()
         .setTitle(Reddit['title'])
