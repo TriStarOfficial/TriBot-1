@@ -2,12 +2,12 @@ const { Message, Client, MessageEmbed } = require('discord.js');
 const EmbedColors = require('../../Modules/EmbedColors');
 
 module.exports = {
-    name: 'changelog',
-    description: 'Sends a changelog Message',
-    category: 'Admin',
+    name: 'bruh',
+    description: '',
+    category: '',
     StaffCommand: false,
     BotCommand: false,
-    Developer: true,
+    Developer: false,
     ModOnly: true,
     nsfw: false,
     /**
@@ -29,7 +29,7 @@ module.exports = {
         .setTitle(title)
         .setFooter(`Version: ${version}`)
         .setDescription(description)
-        let ChangelogMsg = await client.channels.cache.get('835543050075111475').send('<@&837081915282292776>',embed)
+        let ChangelogMsg = await message.channel.send(embed)
         msg.edit(new MessageEmbed()
         .setColor(EmbedColors.EMBED_BACKGROUND)
         .setDescription(`Changelog has been created! [Go to Message](${ChangelogMsg.url})`)
