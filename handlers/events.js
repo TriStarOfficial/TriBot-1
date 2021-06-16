@@ -3,8 +3,6 @@ const ascii = require("ascii-table");
 
 
 // Create a new Ascii table
-let table = new ascii("Events");
-table.setHeading("Events", "Load status");
 
 module.exports = (client) => {
 
@@ -16,22 +14,15 @@ module.exports = (client) => {
             let pull = require(`${__dirname.replace("\handlers", "\events")}/${file}`);
 
             if (pull.event && typeof pull.event !== "string") {
-                table.addRow(file, `❌ -> Property event should be string.`);
                 continue;
             }
 
             pull.event = pull.event || file.replace(".js", "")
 
             client.on(pull.event, pull.run.bind(null, client))
-
-            table.addRow(file, '✅');
-
         } catch (err) {
 
             console.log(err)
-            table.addRow(file, `❌ -> Error while loading event`);
         }
     }
-
-    console.log(table.toString());
 }

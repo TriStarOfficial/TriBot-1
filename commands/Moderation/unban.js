@@ -5,9 +5,10 @@ module.exports = {
     name: 'unban',
     description: 'Unbans a Member!',
     category: 'Moderation',
-    StaffCommand: true,
+    StaffCommand: false,
     BotCommand: false,
     Developer: false,
+    ModOnly: true,
     /**
      * 
      * @param {Client} client 

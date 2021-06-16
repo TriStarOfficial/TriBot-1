@@ -5,9 +5,10 @@ module.exports = {
     name: 'eval',
     description: 'Just eval shit!',
     category: 'Admin',
-    StaffCommand: true,
+    StaffCommand: false,
     BotCommand: false,
     Developer: false,
+    ModOnly: true,
     /**
      * 
      * @param {Client} client 
