@@ -106,6 +106,7 @@ client.on('message', async msg => {
             .setColor(EmbedColors.EMBED_BACKGROUND)
             .setDescription(`${member.user.tag} is Currently in AFK Mode!`)
             .addField('Reason: ', AfkProfile.Reason)
+            .addField('AFK Time', moment(AfkProfile.Time).fromNow())
             ).then(m3 => m3.delete({ timeout: 5000 }))
         })
     }
