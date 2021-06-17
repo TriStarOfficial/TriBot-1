@@ -1,9 +1,11 @@
 const { Message, Client, MessageEmbed } = require('discord.js');
+const moment = require('moment');
 
 module.exports = {
     name: 'uinfo',
     description: 'Get\'s User Info',
     category: 'Info',
+    aliases: ['userinfo'],
     StaffCommand: false,
     BotCommand: true,
     Developer: false,
@@ -26,6 +28,7 @@ module.exports = {
         > ID: ${user.user.id}
         > Avatar: [Click here](${user.user.avatarURL({ dynamic: true })})
         > Created At: ${user.user.createdAt}
+        > Account Age: ${moment(user.user.createdAt).fromNow()}
 
         ** Presense Info **
         > Status: ${user.presence.status.toUpperCase()}

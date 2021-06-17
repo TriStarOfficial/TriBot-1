@@ -9,7 +9,7 @@ const GetVer3 = require('./Function/Roblox/GetVer3');
 const afkSchema = require('./schema/afkSchema.js');
 require('discord-buttons')(client);
 client.embed = require('./Function/Embeds/EmbedHandler')
-client.snipes = new Map();
+client.snipes = new Discord.Collection();
 const EmbedColors = require('./Modules/EmbedColors')
 //SCHEMA
 client.TicketTranscript = model('transcript', 
@@ -110,12 +110,17 @@ client.on('message', async msg => {
         })
     }
 })
-client.on('messageDelete', async(msg) => {
-    client.snipes.set(msg.channel.id, {
-        content: msg.content,
-        author: msg.author,
-        date: msg.createdAt
-    })
+client.on('messageDelete', async(message) => {
+    let snipes = client.snipes.get(message.channel.id) || [];
+
+
+    snipes.unshift({
+        msg: message,
+        image: message.attachments.first()?.proxyURL || null,
+        time: Date.now()
+    });
+
+    client.snipes.set(message.channel.id, snipes)
 })
 
 GetVer3(client);
