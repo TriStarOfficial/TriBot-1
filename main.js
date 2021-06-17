@@ -11,6 +11,7 @@ require('discord-buttons')(client);
 client.embed = require('./Function/Embeds/EmbedHandler')
 client.snipes = new Discord.Collection();
 const EmbedColors = require('./Modules/EmbedColors')
+const moment = require('moment');
 //SCHEMA
 client.TicketTranscript = model('transcript', 
     new Schema({
@@ -117,7 +118,6 @@ client.on('messageDelete', async(message) => {
 
     snipes.unshift({
         msg: message,
-        image: message.attachments.first().proxyURL || null,
         time: Date.now()
     });
 

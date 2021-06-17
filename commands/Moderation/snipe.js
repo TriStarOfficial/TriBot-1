@@ -4,7 +4,7 @@ const moment = require('moment');
 const EmbedColors = require('../../Modules/EmbedColors');
 
 module.exports = {
-    name: 'snipes',
+    name: 'snipe',
     description: 'Snipes Last Deleted Message!',
     category: 'Moderation',
     StaffCommand: false,
@@ -25,12 +25,11 @@ module.exports = {
         const target = snipes[snipe];
         if (!target) return message.channel.send(new MessageEmbed().setColor(EmbedColors.OG_BLURPLE).setDescription(`There is only ${snipes.length} Messages!`));
 
-        const { msg, time, image } = target;
+        const { msg, time } = target;
         message.channel.send(
             new MessageEmbed()
             .setAuthor(msg.author.tag, msg.author.displayAvatarURL())
             .setColor(EmbedColors.BLURPLE)    
-            .setImage(image)
             .setDescription(msg.content)
             .setFooter(`${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}`)
         )
