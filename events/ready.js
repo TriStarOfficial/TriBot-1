@@ -4,7 +4,9 @@ require('dotenv').config();
 
 const activitylist = [
     "Cloud Development Die",
-    "TriStar Hub"
+    "TriStar Hub Win",
+    "Over TriStar Services",
+    "Your Mom Strip"
 ]
 
 /**
