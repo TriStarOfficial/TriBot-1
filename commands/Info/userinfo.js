@@ -7,7 +7,7 @@ module.exports = {
     category: 'Info',
     aliases: ['userinfo'],
     StaffCommand: false,
-    BotCommand: true,
+    BotCommand: false,
     Developer: false,
     ModOnly: false,
     nsfw: false,

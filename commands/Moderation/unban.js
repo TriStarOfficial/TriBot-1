@@ -16,8 +16,10 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async (client, message, args, prefix) => {
-        let ToUnban = await client.users.fetch(args[0]);
+        if(!args[0]) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing User ID').addField('Usage', '```ini\n' + '-unban [user id] (reason - not required)' + '\n```'))
+        const ToUnban = await client.user.fetch(args[0]);
         let Reason = args.slice(1).join(" ") || "Unspecified"
+        
 
         var d = new Date,
         dformat = [d.getMonth() + 1,
@@ -27,7 +29,6 @@ module.exports = {
             d.getMinutes(),
             d.getSeconds()].join(':');
 
-        if(!ToUnban) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('Missing User ID').addField('Usage', '```ini\n' + '-unban [user id] (reason - not required)'))
 
         message.guild.members.unban(ToUnban, Reason)
         message.channel.send(new MessageEmbed()
