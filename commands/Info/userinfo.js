@@ -37,9 +37,10 @@ module.exports = {
         ** Server Member Info **
         > Nickname: ${user.nickname ? user.nickname : "None"}
         > Joined At: ${user.joinedAt}
+        > Joined: ${moment(user.joinedTimestamp).fromNow()}
         
         ** Roles **
-        > ${user.roles.cache.map(r => r).slice(0, -1).join(", ")}
+        > ${user.roles.cache.map(r => r).slice(0, -1).join(",  ")}
         `)
 
         message.channel.send(InfoEmbed)
