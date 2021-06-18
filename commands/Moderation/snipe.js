@@ -30,9 +30,10 @@ module.exports = {
             new MessageEmbed()
             .setAuthor(msg.author.tag, msg.author.displayAvatarURL())
             .setColor(EmbedColors.BLURPLE)    
-            .setDescription(msg.content)
+            .setDescription(msg.content ? msg.content : "Message Detected as a Embed")
             .setFooter(`${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}`)
-        )
+            )
+        console.log(msg.content)
 
     }
 }
