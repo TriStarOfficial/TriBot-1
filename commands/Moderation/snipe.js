@@ -33,7 +33,6 @@ module.exports = {
             .setDescription(msg.content ? msg.content : "Message Detected as a Embed")
             .setFooter(`${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}`)
             )
-        console.log(msg.content)
 
     }
 }
