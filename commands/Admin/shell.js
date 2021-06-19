@@ -27,7 +27,7 @@ module.exports = {
             });
             
             msg.edit({
-                embed: new MessageEmbed().setColor(GREEN).setDescription(`Successfully Executed ${args.slice(0).join(" ")}`).addField('Response:', '```bash\n' + stdout + '\n```')
+                embed: new MessageEmbed().setColor(GREEN).setDescription(`Successfully Executed \`${args.slice(0).join(" ")}\``).addField('Response:', '```bash\n' + stdout + '\n```')
             })
         })
     }
