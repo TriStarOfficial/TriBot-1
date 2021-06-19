@@ -1,4 +1,5 @@
 const { Message, Client, MessageEmbed } = require('discord.js');
+const { BLURPLE, RED } = require('../../Modules/EmbedColors');
 const EmbedColors = require('../../Modules/EmbedColors');
 const colors = require('../../Modules/EmbedColors');
 const Type = [
@@ -36,12 +37,15 @@ module.exports = {
                 let msg = await message.channel.send(new MessageEmbed().setColor(colors.BLURPLE).setDescription(`${client.user.username} Restarting...`))
                 client.destroy()
                 client.login(process.env['token']).then(() => {
-                    client.channels.cache.get('846666365863067688').send(
-                        new MessageEmbed()
-                        .setColor(EmbedColors.BLURPLE)
-                        .setTitle(`${client.user.username} has Restarted!`)    
-                    )
+                    msg.edit({
+                        embed: new MessageEmbed().setColor(BLURPLE).setDescription(`${client.user.username} has Restarted!`)
+                    })
+                }).catch(err => {
+                    if (err) return msg.edit({
+                        embed: new MessageEmbed().setColor(RED).setDescription(`There was an error Restarting ${client.user.username}`).addField('Error:', `\`\`\`cmd\n${err}\n\`\`\``)
+                    })
                 })
+                
             break;
         }
     }
