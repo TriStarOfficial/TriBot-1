@@ -5,6 +5,14 @@ const server = express();
 
 server.use('/public', express.static('public'))
 
+server.use(function (req, res) {
+    res.status(404).send("There is no Page Here!")
+});
+
+server.use(function(error, req, res, next) {
+    res.status(505).send("Server Internal Error!")
+})
+
 server.all('/', (req, res)=>{
     res.sendFile(path.join(__dirname, "../../public/card.html"))
 })
