@@ -54,7 +54,7 @@ module.exports = {
             ch.send(`<@${message.author.id}> Welcome!`, new MessageEmbed()
             .setColor('RANDOM')
             .setTitle('TriStar Tickets')
-            .setDescription('Please Inform the support team about your Issues with the script!\nUse **-ticket-close** to close the Ticket!')
+            .setDescription('Please Inform the support team about your Issues with the script!\nIf There is any Errors! Please send a Screenshot of the Errors!\nUse **-ticket-close** to close the Ticket!')
             .addField("Executor", Executor, true)
             )
             ch.send('<@&842127079574732820> <@&835456151184736296>').then(m => m.delete())
