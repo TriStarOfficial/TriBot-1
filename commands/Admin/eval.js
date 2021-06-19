@@ -7,8 +7,8 @@ module.exports = {
     category: 'Admin',
     StaffCommand: false,
     BotCommand: false,
-    Developer: false,
-    ModOnly: true,
+    Developer: true,
+    ModOnly: false,
     /**
      * 
      * @param {Client} client 
