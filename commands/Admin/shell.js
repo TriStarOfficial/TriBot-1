@@ -25,6 +25,10 @@ module.exports = {
             if (error) return msg.edit({
                 embed: new MessageEmbed().setColor(RED).setDescription(`There was an error Executing \`${args.slice(0).join(" ")}\``).addField('Error:', '```bash\n' + error + '\n```')
             });
+
+            if (stdout.length > 1024) return msg.edit({
+                embed: new MessageEmbed().setColor(RED).setDescription(`Command Response Contains Too Much Characters`)
+            });
             
             msg.edit({
                 embed: new MessageEmbed().setColor(GREEN).setDescription(`Successfully Executed \`${args.slice(0).join(" ")}\``).addField('Response:', '```bash\n' + stdout + '\n```')
