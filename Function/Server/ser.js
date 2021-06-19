@@ -17,7 +17,7 @@ server.all('/status', (req, res) => {
 
 
 server.use(function (req, res) {
-    res.status(404).send("There is no Page Here!")
+    res.status(404).sendFile(path.join(__dirname, "../../public/card.html"));
 });
 
 server.use(function (error, req, res, next) {
