@@ -3,6 +3,7 @@ module.exports = {
     name: 'ticket',
     description: 'Create a Ticket!',
     category: 'Tickets',
+    Disable: true,
     StaffCommand: false,
     BotCommand: true,
     Developer: false,

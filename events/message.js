@@ -23,6 +23,8 @@ module.exports.run  = async(client,message) => {
 
         if(!command) command = client.commands.get(client.aliases.get(cmd));
 
+        if (command.Disable) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${command.name} is currently disabled! may due to error!`))
+
         if (command.StaffCommand && message.channel.id !== StaffCommands) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`You Idiot use this command in <#${StaffCommands}>`))
 
         if (command.BotCommand && message.channel.id !== botCommands) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`Bruh use this command in <#${botCommands}>`))

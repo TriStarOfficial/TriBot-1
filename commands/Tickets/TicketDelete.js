@@ -5,6 +5,7 @@ module.exports = {
     name: 'ticket-delete',
     description: 'Delete a Ticket!',
     category: 'Tickets',
+    Disable: true,
     BotCommand: false,
     StaffCommand: false,
     Developer: false,
