@@ -1,7 +1,7 @@
 node_modules
 .env
 CommandSetup.js
-commands/Admin/CreateBut.js
+# commands/Admin/CreateBut.js
 png
 token.json
 src/Roblox/l.txt
