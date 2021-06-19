@@ -85,19 +85,11 @@ client.on('message', async message => {
 client.on('message', async msg => {
     if (await afkSchema.findOne({ UserID: msg.author.id })) {
         let AfkProfile = await afkSchema.findOne({ UserID: msg.author.id });
-        if (AfkProfile.MessagesLeft == 0) {
-            await afkSchema.findOneAndDelete({ UserID: msg.author.id })
-            msg.channel.send(new Discord.MessageEmbed()
-            .setColor(EmbedColors.EMBED_BACKGROUND)
-            .setDescription('AFK has been disabled!')
-            ).then(m1 => m1.delete({ timeout: 5000 }))
-        } else {
-            await afkSchema.findOneAndUpdate({ UserID: msg.author.id }, { MessagesLeft: AfkProfile.MessagesLeft - 1 });
-            msg.channel.send(new Discord.MessageEmbed()
-            .setColor(EmbedColors.EMBED_BACKGROUND)
-            .setDescription(`You are able to send \`${AfkProfile.MessagesLeft}\` Messages Left, Until AFK Mode is Disabled! `)
-            ).then(m => m.delete({ timeout: 5000 }))
-        }
+        await afkSchema.findOneAndDelete({ UserID: msg.author.id })
+        msg.channel.send(new Discord.MessageEmbed()
+        .setColor(EmbedColors.EMBED_BACKGROUND)
+        .setDescription(`Welcome Back! AFK Time: ${moment(AfkProfile.Time).fromNow()}`)
+        ).then(m1 => m1.delete({ timeout: 5000 }))
     }
 
     if (msg.mentions.members.first()) {
@@ -107,7 +99,7 @@ client.on('message', async msg => {
             .setColor(EmbedColors.EMBED_BACKGROUND)
             .setDescription(`${member.user.tag} is Currently in AFK Mode!`)
             .addField('Reason: ', AfkProfile.Reason)
-            .addField('AFK Time', moment(AfkProfile.Time).fromNow())
+            .addField('AFK Time', moment(AfkProfile.Time).fromNow() )
             ).then(m3 => m3.delete({ timeout: 5000 }))
         })
     }

@@ -30,7 +30,7 @@ module.exports = {
             UserAFK = await new afkSchema({
                 UserID: message.author.id,
                 Reason: reason,
-                Time: Date.now()
+                Time: message.createdAt
             });
             await UserAFK.save()
             message.channel.send(new MessageEmbed()
