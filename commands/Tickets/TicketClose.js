@@ -15,11 +15,11 @@ module.exports = {
      * @param {String[]} args 
      */
     execute: async(client,message,args) => {
-        if (message.channel.parentID !== 837728403876610078) return (await message.channel.send(new MessageEmbed().setColor('RED').setDescription('Wrong Category!'))).delete({ timeout: 5*1000 })
+        if (message.channel.parentID !== "837728403876610078") return (await message.channel.send(new MessageEmbed().setColor('RED').setDescription('Wrong Category!'))).delete({ timeout: 5*1000 })
 
         if (message.channel.name.includes('closed')) return message.channel.send(new MessageEmbed().setColor('RED').setDescription('The Channel is already Closed. Stupid!'))
         
-        message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription('This channel will be closed!')).then(m => m.delete({ timeout: 1000*5 }))
+        message.channel.send(new MessageEmbed().setColor('YELLOW').setDescription('This channel will be closed!')).then(m => m.delete({ timeout: 1000*5 }))
 
         await message.channel.setName(`${message.channel.name}-closed`)
         client.TicketTranscript.findOne({ Channel: message.channel.id }, async (err, data) => {
@@ -44,8 +44,6 @@ module.exports = {
                     }
                 ])
             }
-
-            message.guild.channels.cache.get('851450167055089704').updateOverwrite()
         })
 
         
