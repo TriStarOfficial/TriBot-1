@@ -1,5 +1,6 @@
 const { Message, Client, MessageEmbed } = require('discord.js');
 const { exec } = require('child_process');
+const ReloadCommand = require('../../Modules/ReloadCommand');
 
 module.exports = {
     name: 'update-bot',
@@ -29,15 +30,6 @@ module.exports = {
             })
         })
 
-        client.destroy()
-        client.login(process.env['token']).then(() => {
-            msg.edit({
-                embed: new MessageEmbed().setColor('BLURPLE').setDescription(`${client.user.username} has Successfully Restarted!`)
-            })
-        }).catch(err => {
-            if (err) return msg.edit({
-                embed: new MessageEmbed().setColor('RED').setDescription(`Error While Restarting ${client.user.username}.`)
-            })
-        })
+        ReloadCommand(client, message)
     }
 }
